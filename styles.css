@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+}
+section {
+    text-align: center;
+    color: white;
+    background-color: rgb(202, 77, 19);
+    padding: 5%;
+    max-width: 50%;
+}
+form {
+    padding: 2%;
+    text-align: left;
+}
+label, input {
+    display: block;
+}
