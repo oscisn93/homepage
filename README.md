@@ -32,6 +32,3 @@ Design your database and create at least the following numbers of records:
 > a.	Given a course number list the sections of the course, including the classrooms, the meeting days and time, and the number of students enrolled in each section.
 >
 > b.	Given the campus wide ID of a student, list all courses the student took and the grades.
-
-
-This is a test
