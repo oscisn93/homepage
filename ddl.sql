@@ -1,92 +1,84 @@
-CREATE TABLE professor (
-  ssn int(9) NOT NULL,
-  name varchar(128) DEFAULT NULL,
-  sex char(1) DEFAULT NULL,
-  salary float(8,2) DEFAULT NULL,
-  title varchar(16) DEFAULT NULL,
-  street varchar(64) DEFAULT NULL,
-  city varchar(64) DEFAULT NULL,
-  state varchar(2) DEFAULT NULL,
-  zip int(5) DEFAULT NULL,
-  area_code int(3) DEFAULT NULL,
-  phone int(7) DEFAULT NULL,
-  PRIMARY KEY(ssn)
+CREATE TABLE professor(
+    ssn INT(9) NOT NULL,
+    NAME VARCHAR(128) DEFAULT NULL,
+    sex CHAR(1) DEFAULT NULL,
+    salary FLOAT(8, 2) DEFAULT NULL,
+    title VARCHAR(16) DEFAULT NULL,
+    street VARCHAR(64) DEFAULT NULL,
+    city VARCHAR(64) DEFAULT NULL,
+    state VARCHAR(2) DEFAULT NULL,
+    zip INT(5) DEFAULT NULL,
+    area_code INT(3) DEFAULT NULL,
+    phone INT(7) DEFAULT NULL,
+    PRIMARY KEY(ssn)
 );
-
-CREATE TABLE degrees (
-  prof_ssn int(9) NOT NULL,
-  degree varchar(64) NOT NULL,
-  PRIMARY KEY (prof_ssn, degree),
-  FOREIGN KEY(prof_ssn) REFERENCES professor ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE DEGREES(
+    prof_ssn INT(9) NOT NULL,
+    degree VARCHAR(64) NOT NULL,
+    PRIMARY KEY(prof_ssn, degree),
+    CONSTRAINT FOREIGN KEY(prof_ssn) REFERENCES professor(ssn) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-CREATE TABLE department (
-  dno int(2) NOT NULL,
-  name varchar(64) DEFAULT NULL,
-  phone int(10) DEFAULT NULL,
-  location varchar(64) DEFAULT NULL,
-  chair_ssn int(9) DEFAULT NULL,
-  PRIMARY KEY(dno),
-  FOREIGN KEY(chair_ssn) REFERENCES professor ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE department(
+    dno INT(2) NOT NULL,
+    NAME VARCHAR(64) DEFAULT NULL,
+    phone INT(10) DEFAULT NULL,
+    location VARCHAR(64) DEFAULT NULL,
+    chair_ssn INT(9) DEFAULT NULL,
+    PRIMARY KEY(dno),
+    CONSTRAINT FOREIGN KEY(chair_ssn) REFERENCES professor(ssn) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-CREATE TABLE course (
-  cno int(4) NOT NULL,
-  title varchar(64) DEFAULT NULL,
-  units int(2) DEFAULT NULL,
-  textbook varchar(64) DEFAULT NULL,
-  dp_no int(2) DEFAULT NULL,
-  PRIMARY KEY(cno),
-  FOREIGN KEY(dno) REFERENCES department ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE course(
+    cno INT(4) NOT NULL,
+    title VARCHAR(64) DEFAULT NULL,
+    units INT(2) DEFAULT NULL,
+    textbook VARCHAR(64) DEFAULT NULL,
+    dp_no INT(2) DEFAULT NULL,
+    PRIMARY KEY(cno),
+    CONSTRAINT FOREIGN KEY(dp_no) REFERENCES department(dno) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-CREATE TABLE prerequsites (
-  main_cno int(4) NOT NULL,
-  pre_cno int(4) NOT NULL,
-  PRIMARY KEY(main_cno, pre_cno),
-  FOREIGN KEY(main_cno) REFERENCES course ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY(pre_cno) REFERENCES course ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE prerequsites(
+    main_cno INT(4) NOT NULL,
+    pre_cno INT(4) NOT NULL,
+    PRIMARY KEY(main_cno, pre_cno),
+    CONSTRAINT FOREIGN KEY(main_cno) REFERENCES course(cno) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY(pre_cno) REFERENCES course(cno) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-CREATE TABLE section (
-  scno int(4) NOT NULL,
-  sno int(2) NOT NULL,
-  number_of_seats int(3) DEFAULT NULL,
-  start_time time DEFAULT NULL,
-  end_time time DEFAULT NULL,
-  meeting_days varchar(7) DEFAULT NULL,
-  instructor_ssn int(9) DEFAULT NULL,
-  PRIMARY  KEY(scno, sno),
-  FOREIGN KEY(scno) REFERENCES course ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY(instructor_ssn) REFERENCES professor ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE section(
+    scno INT(4) NOT NULL,
+    sno INT(2) NOT NULL,
+    number_of_seats INT(3) DEFAULT NULL,
+    start_time TIME DEFAULT NULL,
+    end_time TIME DEFAULT NULL,
+    meeting_days VARCHAR(7) DEFAULT NULL,
+    instructor_ssn INT(9) DEFAULT NULL,
+    PRIMARY KEY(sno, scno),
+    CONSTRAINT FOREIGN KEY(scno) REFERENCES course(cno) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY(instructor_ssn) REFERENCES professor(ssn) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-CREATE TABLE student (
-  CWID int(9) NOT NULL,
-  Fname varchar(64) NOT NULL,
-  Lname varchar(64) NOT NULL,
-  address varchar(256) NOT NULL,
-  phone int(10) NOT NULL,
-  major_dno int(2) NOT NULL,
-  PRIMARY KEY(CWID),
-  FOREIGN KEY(major_dno) REFERENCES department ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE student(
+    CWID INT(9) NOT NULL,
+    Fname VARCHAR(64) NOT NULL,
+    Lname VARCHAR(64) NOT NULL,
+    address VARCHAR(256) NOT NULL,
+    phone INT(10) NOT NULL,
+    major_dno INT(2) NOT NULL,
+    PRIMARY KEY(CWID),
+    CONSTRAINT FOREIGN KEY(major_dno) REFERENCES department(dno) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-CREATE TABLE enrollment (
-  E_cno int(4) NOT NULL,
-  E_sno int(2) NOT NULL,
-  E_CWID int(9) NOT NULL,
-  grade char(2) DEFAULT NULL,
-  PRIMARY KEY(E_cno, E_sno, E_CWID)
-  FOREIGN KEY(E_cno) REFERENCES course(cno) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY(E_sno) REFERENCES section(sno) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY(E_CWID) REFERENCES student(CWID) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE enrollment(
+    E_cno INT(4) NOT NULL,
+    E_sno INT(2) NOT NULL,
+    E_CWID INT(9) NOT NULL,
+    grade CHAR(2) DEFAULT NULL,
+    PRIMARY KEY(E_cno, E_sno, E_CWID),
+    CONSTRAINT FOREIGN KEY(E_cno) REFERENCES course(cno) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY(E_sno) REFERENCES section(sno) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY(E_CWID) REFERENCES student(CWID) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-CREATE TABLE minor (
-  st_CWID int(9) NOT NULL,
-  minor_dno int(2) NOT NULL 
-  PRIMARY KEY(st_CWID, minor_dno) ,
-  FOREIGN KEY(st_CWID) REFERENCES student(CWID) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY(minor_dno) REFERENCES department(dno) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE minor(
+    st_CWID INT(9) NOT NULL,
+    minor_dno INT(2) NOT NULL,
+    PRIMARY KEY(st_CWID, minor_dno),
+    CONSTRAINT FOREIGN KEY(st_CWID) REFERENCES student(CWID) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY(minor_dno) REFERENCES department(dno) ON DELETE CASCADE ON UPDATE CASCADE
 );
