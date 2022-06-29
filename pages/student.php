@@ -1,17 +1,5 @@
 <?php
-    // $servername = "localhost";
-    // $username = "oscar";
-    // $password = "oscar";
-    // $database = "university";
-
-    // // Create connection
-    // $conn = new mysqli($servername, $username, $password, $database);
-
-    // // Check connection
-    // if ($conn->connect_error) {
-    //     die("Connection failed: " . $conn->connect_error);
-    // }
-    // echo "Connected successfully to ".$database."!";
+    require('../db.inc.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

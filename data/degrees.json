@@ -1,0 +1,18 @@
+[
+  {
+    "prof_ssn": "111111111",
+    "degree": "Doctorate of Veterinary Medicine"
+  },
+  {
+    "prof_ssn": "222222222",
+    "degree": "Bachelor of Arts: Anthropology"
+  },
+  {
+    "prof_ssn": "333333333",
+    "degree": "Bachelor of Science: Computer Science"
+  },
+  {
+    "prof_ssn": "444444444",
+    "degree": "Master of Science: Mathematics"
+  }
+]
