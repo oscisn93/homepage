@@ -1,0 +1,56 @@
+[
+  {
+    "scno": "1626",
+    "sno": "1",
+    "number_of_seats": "100",
+    "start_time": "08:00:00",
+    "end_time": "09:30:00",
+    "meeting_days": "Online",
+    "instructor_ssn": "123456789"
+  },
+  {
+    "scno": "1726",
+    "sno": "1",
+    "number_of_seats": "100",
+    "start_time": "10:00:00",
+    "end_time": "11:30:00",
+    "meeting_days": "Online",
+    "instructor_ssn": "999999999"
+  },
+  {
+    "scno": "2226",
+    "sno": "1",
+    "number_of_seats": "30",
+    "start_time": "10:30:00",
+    "end_time": "11:45:00",
+    "meeting_days": "MW",
+    "instructor_ssn": "988888888"
+  },
+  {
+    "scno": "2226",
+    "sno": "2",
+    "number_of_seats": "30",
+    "start_time": "12:00:00",
+    "end_time": "01:30:00",
+    "meeting_days": "MW",
+    "instructor_ssn": "977777777"
+  },
+  {
+    "scno": "3200",
+    "sno": "1",
+    "number_of_seats": "20",
+    "start_time": "02:00:00",
+    "end_time": "03:45:00",
+    "meeting_days": "TR",
+    "instructor_ssn": "966666666"
+  },
+  {
+    "scno": "3200",
+    "sno": "2",
+    "number_of_seats": "20",
+    "start_time": "04:00:00",
+    "end_time": "06:45:00",
+    "meeting_days": "MW",
+    "instructor_ssn": "955555555"
+  }
+]

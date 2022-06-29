@@ -1,3 +1,18 @@
+<?php
+    // $servername = "localhost";
+    // $username = "oscar";
+    // $password = "oscar";
+    // $database = "university";
+
+    // // Create connection
+    // $conn = new mysqli($servername, $username, $password, $database);
+
+    // // Check connection
+    // if ($conn->connect_error) {
+    //     die("Connection failed: " . $conn->connect_error);
+    // }
+    // echo "Connected successfully to ".$database."!";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +49,7 @@
             <input type="text">
             <button type="submit" class="btn btn-primary">SUBMIT</button>
         </form>
+        <button type="submit" action></button>
     </section>
 <!-- scripts required for bootstrap UI elements -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

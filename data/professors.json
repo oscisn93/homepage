@@ -1,0 +1,41 @@
+[
+  {
+    "ssn": "987432145",
+    "name": "Charles Xavier",
+    "sex": "m",
+    "salary": "120100.99",
+    "title": "Neuroscience",
+    "street": "28 Applewood",
+    "city": "Centeral City",
+    "state": "MI",
+    "zip": "87431",
+    "area_code": "878",
+    "phone": "5678931"
+  },
+  {
+    "ssn": "987392198",
+    "name": "Harrison Wells",
+    "sex": "m",
+    "salary": "220400.43",
+    "title": "Philosophy",
+    "street": "12 Orangetree",
+    "city": "Orange",
+    "state": "CA",
+    "zip": "92435",
+    "area_code": "949",
+    "phone": "3340876"
+  },
+  {
+    "ssn": "987442189",
+    "name": "Eobard Thawne",
+    "sex": "m",
+    "salary": "210140.19",
+    "title": "Physics",
+    "street": "19 Englewood",
+    "city": "Santiago",
+    "state": "FL",
+    "zip": "45692",
+    "area_code": "332",
+    "phone": "1456792"
+  }
+]
