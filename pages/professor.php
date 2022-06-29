@@ -12,6 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
+                    
                     <a class="nav-link" href="#">Professors<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
@@ -22,14 +23,14 @@
     </nav>
     <h1>Welcome Professors!</h1>
     <section class="container-fluid">
-        <form action="" method="get">
+        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
             <h2>Looking for personal information?</h2>
             <label for="input">Enter SSN:</label>
             <input type="text">
             <br />
             <button type="submit" class="btn btn-primary">SUBMIT</button>
         </form>
-        <form action="" method="get">
+        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
             <h2>Want to browse course grades?</h2>
             <div class="container">
                 <label for="input">Enter Course Number:</label>

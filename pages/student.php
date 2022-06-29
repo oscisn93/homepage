@@ -37,13 +37,13 @@
     </nav>
     <h1>Welcome Students!</h1>
     <section class="container-fluid">
-        <form action="" method="get">
+        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
             <h2>Looking for personal information?</h2>
             <label for="input">Enter CWID:</label>
             <input type="text">
             <button type="submit" class="btn btn-primary">SUBMIT</button>
         </form>
-        <form action="" method="get">
+        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
             <h2>Want to browse Courses?</h2>
             <label for="input">Enter Course Number:</label>
             <input type="text">
