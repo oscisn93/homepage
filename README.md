@@ -1,7 +1,7 @@
 # __CPSC 332 File Structures and Database Systems__
 ## summer 2022 Term Project
 # Project Requirements:
-## You are asked to design a database for a university that satisfies the following requirements:
+## Design a database for a university that satisfies the following requirements:
 1.	The database keeps information of each professor, including the social security number, name, address, telephone number, sex, title, salary, and college degrees. The address includes street address, city, state, and zip code. The telephone number includes the area code and 7 digit number.
 2.	Each department has a unique number, name, telephone, office location, and a chairperson who is a professor.
 3.	Each course has a unique number, title, textbook, units. Each course also has a set of prerequisite courses. Each course is offered by a department.
@@ -11,7 +11,7 @@
 Design your database and create at least the following numbers of records:
 8 students	2 departments	3 professors
 4 courses	6 sections	20 enrollment records
-## You should provide interfaces for the following individuals:
+## Implement interfaces for the following individuals:
 ### For the professors:
 > a.	Given the social security number of a professor, list the titles, classrooms, meeting days and time of his/her classes.
 > >
