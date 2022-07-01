@@ -28,7 +28,12 @@
         <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
             <h2>Looking for personal information?</h2>
             <label for="input">Enter SSN:</label>
-            <input type="text">
+            <input type="text" name="ssn">
+            <?php
+                if(isset($_GET["ssn"])) {
+                    getProfInfo($_GET["ssn"], $conn);
+                }
+            ?>
             <br />
             <button type="submit" class="btn btn-primary">SUBMIT</button>
         </form>
@@ -36,10 +41,15 @@
             <h2>Want to browse course grades?</h2>
             <div class="container">
                 <label for="input">Enter Course Number:</label>
-                <input type="text">
+                <input type="text" name="cno">
                 <label for="input">Enter Section Number:</label>
-                <input type="text">
+                <input type="text" name="sno">
             </div>
+            <?php
+                if(isset($_GET["cno"])&&isset($_GET["sno"])) {
+                    getCourseGrades($_GET["cno"], $_GET["sno"], $conn);
+                }
+            ?>
             <br />
             <button type="submit" class="btn btn-primary">SUBMIT</button>
         </form>

@@ -28,14 +28,24 @@
         <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
             <h2>Looking for personal information?</h2>
             <label for="input">Enter CWID:</label>
-            <input type="text">
+            <input type="text" name="cwid">
             <button type="submit" class="btn btn-primary">SUBMIT</button>
+            <?php
+                if(isset($_GET["cwid"])) {
+                    getCourses($_GET["cwid"], $conn);
+                }
+            ?>
         </form>
         <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
             <h2>Want to browse Courses?</h2>
             <label for="input">Enter Course Number:</label>
-            <input type="text">
+            <input type="text" name="cno">
             <button type="submit" class="btn btn-primary">SUBMIT</button>
+            <?php
+                if(isset($_GET["cno"])) {
+                    getAllCourses($_GET["cno"], $conn);
+                }
+            ?>
         </form>
         <button type="submit" action></button>
     </section>
