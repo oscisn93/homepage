@@ -37,7 +37,7 @@ values("987442189","Philosopher's Doctorate, Physics"),
 CREATE TABLE department(
     dno INT(2) NOT NULL,
     NAME VARCHAR(64) DEFAULT NULL,
-    phone INT(10) DEFAULT NULL,
+    phone VARCHAR(10) DEFAULT NULL,
     location VARCHAR(64) DEFAULT NULL,
     chair_ssn INT(9) DEFAULT NULL,
     PRIMARY KEY(dno),
@@ -101,7 +101,7 @@ CREATE TABLE student(
     Fname VARCHAR(64) NOT NULL,
     Lname VARCHAR(64) NOT NULL,
     address VARCHAR(256) NOT NULL,
-    phone INT(10) NOT NULL,
+    phone VARCHAR(10) NOT NULL,
     major_dno INT(2) NOT NULL,
     PRIMARY KEY(CWID),
     CONSTRAINT FOREIGN KEY(major_dno) REFERENCES department(dno) ON DELETE CASCADE ON UPDATE CASCADE
