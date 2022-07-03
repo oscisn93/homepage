@@ -25,19 +25,19 @@
     </nav>
     <h1>Welcome Professors!</h1>
     <section class="container-fluid">
-        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
+        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
             <h2>Looking for personal information?</h2>
             <label for="input">Enter SSN:</label>
             <input type="text" name="ssn">
             <?php
-                if(isset($_GET["ssn"])) {
-                    getProfInfo($_GET["ssn"], $conn);
+                if(isset($_POST["ssn"])) {
+                    getProfInfo($_POST["ssn"], $conn);
                 }
             ?>
             <br />
             <button type="submit" class="btn btn-primary">SUBMIT</button>
         </form>
-        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
+        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
             <h2>Want to browse course grades?</h2>
             <div class="container">
                 <label for="input">Enter Course Number:</label>
@@ -46,8 +46,8 @@
                 <input type="text" name="sno">
             </div>
             <?php
-                if(isset($_GET["cno"])&&isset($_GET["sno"])) {
-                    getCourseGrades($_GET["cno"], $_GET["sno"], $conn);
+                if(isset($_POST["cno"])&&isset($_POST["sno"])) {
+                    getCourseGrades($_POST["cno"], $_POST["sno"], $conn);
                 }
             ?>
             <br />
@@ -56,7 +56,7 @@
     </section>
 <!-- scripts required for bootstrap UI elements -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
