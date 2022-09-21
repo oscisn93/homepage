@@ -1,11 +1,6 @@
 <?php
     // error_reporting(E_ERROR | E_PARSE);
 
-    // $servername = "mariadb";
-    // $username = "cs332m3";
-    // $password = "YSF4EsHY";
-    // $database = "cs332m3";
-
     $servername = "localhost";
     $username = "root";
     $password = "";
